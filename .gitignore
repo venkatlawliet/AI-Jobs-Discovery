@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Dev/test artifacts (not part of submission)
+first_row.json
+explore.py
+test_search.py
+test_result.txt
+test_output.txt
+out.txt
+tokens.txt
+demo_output.txt
+test_loc.txt
+test_location.py
+check_wealth.py
+Tokens_Report.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dataset (too large for git, must be downloaded separately)
+jobs.jsonl
+jobs.jsonl.crdownload

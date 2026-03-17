@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Jobs Discovery</title>
+    <!-- Use Inter font for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Sidebar: Conversation History -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i data-feather="briefcase"></i>
+                    <h2>AI Jobs<span>Discovery</span></h2>
+                </div>
+                <div class="header-actions">
+                    <button id="newChatBtn" class="icon-btn" title="New Search">
+                        <i data-feather="plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="conversation-history" id="chatHistory">
+                <!-- Chat turns will appear here -->
+                <div class="empty-state-text">Start your semantic search below!</div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="metrics-row">
+                    <span class="metrics-label"><i data-feather="cpu" style="width:14px;height:14px;"></i> Tokens</span>
+                    <span class="metrics-value" id="tokenCount">0</span>
+                </div>
+                <div class="metrics-row">
+                    <span class="metrics-label"><i data-feather="dollar-sign" style="width:14px;height:14px;"></i> Est.
+                        Cost</span>
+                    <span class="metrics-value cost" id="costCount">$0.0000</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content: Search Bar & Results -->
+        <main class="main-content">
+            <div class="top-nav">
+                <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+                    <i data-feather="sun"></i>
+                </button>
+            </div>
+
+            <!-- Floating Search Area -->
+            <div class="search-header">
+                <h1>AI Job Discovery Engine</h1>
+                <p>Find your next role using everyday language.</p>
+
+                <form id="searchForm" class="search-form">
+                    <div class="input-wrapper">
+                        <i data-feather="search" class="search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="What kind of job are you looking for?"
+                            autocomplete="off" required>
+                        <button type="submit" id="searchBtn" class="primary-btn">
+                            <i data-feather="arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Loader -->
+            <div id="loader" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p>Sit tight while we get you the results...</p>
+            </div>
+
+            <!-- Parsed Intent Breakdown -->
+            <div id="intentContainer" class="intent-container hidden">
+                <h3>🧠 Search Criteria Extracted:</h3>
+                <div class="intent-tags" id="intentTags">
+                    <!-- Tags rendered via JS -->
+                </div>
+            </div>
+
+            <!-- Results Listing -->
+            <div class="results-container" id="resultsContainer">
+                <!-- Job cards will appear here -->
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>
