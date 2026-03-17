@@ -33,3 +33,5 @@ Thumbs.db
 # Dataset (too large for git, must be downloaded separately)
 jobs.jsonl
 jobs.jsonl.crdownload
+# Sample is small enough to commit
+# jobs_sample.jsonl is tracked

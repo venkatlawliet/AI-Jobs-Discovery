@@ -22,8 +22,9 @@ class SearchRequest(BaseModel):
 async def startup_event():
     global engine
     print("Loading Dataset into Memory...")
-    max_rows = int(os.getenv("MAX_ROWS", 10000))
-    loader = JobsDataLoader(max_rows=max_rows)
+    max_rows = int(os.getenv("MAX_ROWS", 1000))
+    jobs_file = os.getenv("JOBS_FILE", "jobs_sample.jsonl")
+    loader = JobsDataLoader(file_path=jobs_file, max_rows=max_rows)
     meta, me, mi, mc = loader.load()
     engine = JobSearchEngine(meta, me, mi, mc)
     print("Engine Ready!")
